@@ -36,6 +36,7 @@ const App: React.FC = () => {
         {
           name: "categories",
           list: ListCategory,
+          canDelete: true,
         }
       ]}
     />

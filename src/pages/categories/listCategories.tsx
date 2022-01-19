@@ -19,8 +19,7 @@ export const ListCategory: React.FC = () => {
     const {
         modalProps,
         formProps,
-        show,
-        editId
+        show
     } = useModalForm<ICategory>({
         action: "edit",
     });
