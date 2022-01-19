@@ -13,3 +13,8 @@ export interface IUsers {
     status: boolean;
     birthday: string;
 }
+
+export interface ICategory {
+    id: string;
+    title: string;
+}

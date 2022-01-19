@@ -5,10 +5,13 @@ import dataProvider from "@pankod/refine-simple-rest";
 import "@pankod/refine/dist/styles.min.css";
 
 import { PostList } from "./pages/posts/list";
+
 import { ListUsers } from "./pages/users/listUser";
 import { CreateUser } from "./pages/users/createUser";
 import { UpdateUser } from "./pages/users/updateUser";
 import { ShowUser } from "./pages/users/showUser";
+
+import { ListCategory } from "./pages/categories/listCategories";
 
 const API_URL = "https://api.fake-rest.refine.dev"
 
@@ -29,6 +32,10 @@ const App: React.FC = () => {
           edit: UpdateUser,
           show: ShowUser,
           canDelete: true,
+        },
+        {
+          name: "categories",
+          list: ListCategory,
         }
       ]}
     />
