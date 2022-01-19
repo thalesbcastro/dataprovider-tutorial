@@ -5,10 +5,13 @@ import {
     List,
     DateField,
     FilterDropdown,
-    TextField,
     useSelect,
     Select,
     BooleanField,
+    Space,
+    DeleteButton,
+    ShowButton,
+    EditButton,
 } from "@pankod/refine";
 
 import { IUsers } from "../../interface";
@@ -32,10 +35,10 @@ export const ListUsers: React.FC = () => {
         optionValue: "id",
         optionLabel: "firstName",
     });
-    console.log(userSelectProps);
+
     return (
         <List>
-            <Table {...tableProps} key="id">
+            <Table {...tableProps} rowKey="id">
                 <Table.Column
                     dataIndex="id"
                     title="ID"
@@ -61,6 +64,31 @@ export const ListUsers: React.FC = () => {
                     dataIndex="birthday"
                     title="Birthday"
                     render={(value) => <DateField format="LL" value={value} />}
+                />
+                <Table.Column<IUsers>
+                    dataIndex="actions"
+                    title="actions"
+                    render={(_text, record): React.ReactNode => {
+                        return (
+                            <Space>
+                                <ShowButton
+                                    size="small"
+                                    recordItemId={record.id}
+                                    hideText
+                                />
+                                <EditButton
+                                    size="small"
+                                    recordItemId={record.id}
+                                    hideText
+                                />
+                                <DeleteButton
+                                    size="small"
+                                    recordItemId={record.id}
+                                    hideText
+                                />
+                            </Space>
+                        )
+                    }}
                 />
             </Table>
         </List>
