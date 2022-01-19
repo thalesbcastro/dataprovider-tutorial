@@ -11,6 +11,10 @@ import {
     Modal,
     useSelect,
     Select,
+    Space,
+    ShowButton,
+    EditButton,
+    DeleteButton,
 } from "@pankod/refine";
 import { ICategory, IPost } from "../../interface";
 
@@ -46,6 +50,31 @@ export const PostList: React.FC = () => {
                         dataIndex="createdAt"
                         title="CreatedAt"
                         render={(value) => <DateField format="LLL" value={value} />}
+                    />
+                    <Table.Column<IPost>
+                        dataIndex="actions"
+                        title="Actions"
+                        render={(_text, record): React.ReactNode => {
+                            return (
+                                <Space>
+                                    <ShowButton
+                                        size="small"
+                                        recordItemId={record.id}
+                                        hideText
+                                    />
+                                    <EditButton
+                                        size="small"
+                                        recordItemId={record.id}
+                                        hideText
+                                    />
+                                    <DeleteButton
+                                        size="small"
+                                        recordItemId={record.id}
+                                        hideText
+                                    />
+                                </Space>
+                            );
+                        }}
                     />
                 </Table>
             </List>
